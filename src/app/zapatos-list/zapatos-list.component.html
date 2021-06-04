@@ -1,6 +1,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Imagen</th>
             <th>Nombre</th>
             <th>Tipo</th>
             <th>Precio</th>
@@ -8,24 +9,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>{{zapatos.nombre}}</td>
-            <td>{{zapatos.tipo}}</td>
-            <td>{{zapatos.precio}}</td>
-            <td>{{zapatos.stock}}</td>
+        <tr *ngFor="let zapato of zapatos" [ngClass]="{'clearance': zapato.clearance}">
+            <td  class="productPhoto"><img src="{{zapato.image}}" alt=""></td>
+            <td>{{zapato.name}}</td>
+            <td>{{zapato.type}}</td>
+            <td>{{zapato.price | currency}}</td>
+            <td><span class="badge bg-warning text-dark" *ngIf="zapato.stock==0">SIN STOCK</span> </td>
         </tr>
-        <tr>
-            <td>Salomon</td>
-            <td>Trekking</td>
-            <td>$8.500</td>
-            <td>32</td>
-        </tr>
-        <tr>
-            <td>Adidas</td>
-            <td>Street</td>
-            <td>$14.350</td>
-            <td>18</td>
-        </tr>
+        
     </tbody>
 </table>
 
