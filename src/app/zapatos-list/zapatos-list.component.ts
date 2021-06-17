@@ -14,7 +14,8 @@ export class ZapatosListComponent implements OnInit {
     price: 12000,
     stock: 13,
     image: "assets/img/nike_running.jpg",
-    clearance: false
+    clearance: false,
+    quantity: 0,
   },
   {
     name: "Salomon",
@@ -22,7 +23,8 @@ export class ZapatosListComponent implements OnInit {
     price: 8500,
     stock: 32,
     image: "assets/img/salomon_trekking.jpg",
-    clearance: false
+    clearance: false,
+    quantity: 0,
   },
   {
     name: "Adidas",
@@ -30,7 +32,8 @@ export class ZapatosListComponent implements OnInit {
     price: 14350,
     stock: 0,
     image: "assets/img/adidas_street.jpg",
-    clearance: true
+    clearance: true,
+    quantity: 0,
   },
   ];
 
@@ -39,4 +42,15 @@ export class ZapatosListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  upQuantity(zapato: Zapato):void{
+    if(zapato.quantity<zapato.stock){
+      zapato.quantity++;
+    }
+  }
+
+  downQuantity(zapato: Zapato):void{ 
+    if(zapato.quantity>0){
+      zapato.quantity--;
+    } 
+  }
 }
